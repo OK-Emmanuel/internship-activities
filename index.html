@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="app-title">Todo List</h1>
+            <p class="app-subtitle">Stay organized and get things done</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Todo Input Section -->
+            <section class="todo-input-section">
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        id="todoInput" 
+                        class="todo-input" 
+                        placeholder="Add a new task..."
+                        maxlength="200"
+                    >
+                    <button id="addBtn" class="add-btn">Add Task</button>
+                </div>
+            </section>
+
+            <!-- Search and Filter Section -->
+            <section class="controls-section">
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Search tasks..."
+                    >
+                </div>
+                <div class="filter-container">
+                    <button id="allFilter" class="filter-btn active" data-filter="all">All</button>
+                    <button id="activeFilter" class="filter-btn" data-filter="active">Active</button>
+                    <button id="completedFilter" class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+            </section>
+
+            <!-- Todo Stats Section -->
+            <section class="stats-section">
+                <div class="stats-container">
+                    <span class="stat-item">Total: <span id="totalCount">0</span></span>
+                    <span class="stat-item">Active: <span id="activeCount">0</span></span>
+                    <span class="stat-item">Completed: <span id="completedCount">0</span></span>
+                </div>
+            </section>
+
+            <!-- Todo List Section -->
+            <section class="todo-list-section">
+                <ul id="todoList" class="todo-list">
+                    <!-- Todo items will be dynamically inserted here -->
+                </ul>
+                <div id="emptyState" class="empty-state">
+                    <p>No tasks yet. Add one above to get started!</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Todo List App. Built with ❤️</p>
+        </footer>
+    </div>
+
+    <!-- Todo Item Template -->
+    <template id="todoTemplate">
+        <li class="todo-item" data-id="">
+            <div class="todo-content">
+                <input type="checkbox" class="todo-checkbox">
+                <span class="todo-text"></span>
+                <input type="text" class="todo-edit-input" style="display: none;">
+            </div>
+            <div class="todo-actions">
+                <button class="edit-btn" title="Edit task">✏️</button>
+                <button class="delete-btn" title="Delete task">🗑️</button>
+            </div>
+        </li>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
